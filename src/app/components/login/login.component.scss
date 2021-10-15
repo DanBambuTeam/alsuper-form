@@ -132,6 +132,7 @@
   div{
     display: flex;
     flex-direction: column;
+    width: inherit;
 
     #btn1{
       width: 328px;
@@ -178,4 +179,21 @@
   }
 }
 
+@media screen and (max-width: 1360px) {
 
+
+  .container_form{
+
+    width: 60%;
+
+  }
+
+  .container_from-leftside{
+    padding:50px 0px 50px 25px;
+  }
+
+  .container_form-rightside{
+    padding:50px 0px 50px 15px;
+   }
+
+}

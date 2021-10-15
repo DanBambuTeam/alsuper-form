@@ -9,15 +9,15 @@
 
 .container_form{
   display: flex;
-  width: 100%;
+  width: 50%;
+  margin: auto;
 }
 
 .container_from-leftside{
   width: 50%;
   margin-top: 86px;
   border-right: 1px solid #9797974b;
-  padding-left: 260px;
-  padding-right: 40px;
+  padding:50px 50px 50px 49px;
 
   h2{
     font-family: 'Montserrat';
@@ -262,8 +262,8 @@
   width: 50%;
   margin-top: 86px;
   border-right: 1px solid #9797974b;
-  padding-right: 260px;
-  padding-left: 40px;
+  padding:50px;
+  border: none;
 
   div{
     display: flex;
@@ -306,6 +306,24 @@
   }
 }
 
+@media screen and (max-width: 1360px) {
+
+
+  .container_form{
+
+    width: 60%;
+
+  }
+
+  .container_from-leftside{
+    padding:50px 0px 50px 25px;
+  }
+
+  .container_form-rightside{
+    padding:50px 0px 50px 15px;
+   }
+
+}
 
 
 
