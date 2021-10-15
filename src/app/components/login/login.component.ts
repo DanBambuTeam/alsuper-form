@@ -1,0 +1,69 @@
+import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth.service'
+import { FormControl, Validators, FormGroup, FormsModule, FormBuilder } from '@angular/forms';
+import {EMAIL_REGEX,ALPHANUMERIC} from '../../shared/data';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  public userLogin: any = new FormGroup ({
+    email: new FormControl('',[Validators.required,Validators.pattern(EMAIL_REGEX)]),
+    password: new FormControl('',[Validators.required,Validators.pattern(ALPHANUMERIC)])
+  });
+
+  hide = true;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService:AuthService,
+  ) {
+    this.buildForm();
+  }
+
+  ngOnInit(): void {
+
+  }
+
+  login(){
+    this.authService.login(this.userLogin)
+    .subscribe(rta =>{
+      console.log(rta.acces_token);
+    });
+  }
+
+  private buildForm(){
+      this.userLogin = this.formBuilder.group({
+        email:  ['', [Validators.required,Validators.pattern(EMAIL_REGEX)]],
+        password:['',[Validators.required,Validators.pattern(ALPHANUMERIC)]]
+    });
+  }
+
+  save(event: Event) { //con esto se evita que se recargue la pagina al enviar.
+    event.preventDefault();
+    if(this.userLogin.valid){ //si los datos son validos etonces enseña en la consola el valor de lo que se envia
+      const value = this.userLogin.value;
+      console.log(value);// se imprime ese valor
+    }else{
+      //habilitando el envio de los datos del formulario aun si no se llenaron, entonces se puede enviar un error
+      this.userLogin.markAllAsTouched();
+    }
+  }
+
+  get emailField(){
+    return this.userLogin.get('email');
+  }
+
+  get passwordField(){
+    return this.userLogin.get('password');
+  }
+
+
+
+
+
+
+}

@@ -1,0 +1,97 @@
+
+
+<div class="container">
+
+  <div class="container_form--banner">
+  <img src="../../../assets/img/alsuper@3x.png" alt="">
+  </div>
+
+  <form class="container_form" [formGroup]="userLogin" (ngSubmit)="save($event)">
+
+    <div class="container_from-leftside">
+
+      <h2 class="container_form-titulo">Inicia sesión</h2>
+
+      <div id="emalSeccion" class="container_form-nombre">
+
+        <div class="container_form-nombre-ingreso">
+          <span>Correo electónico*:</span>
+        </div>
+
+        <div class="container_form-nombre-place">
+
+          <input type="email" formControlName="email" placeholder="Correo electronico">
+
+          <div *ngIf="emailField.errors && emailField.touched">
+            <small *ngIf="emailField.hasError('required')">
+              Es un campo requerido
+            </small>
+            <small *ngIf="emailField.hasError('pattern')">
+              Correo electronico no valido. Vuelva a intentar
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div id="passwordSeccion" class="container_form-nombre">
+
+        <div class="container_form-nombre-ingreso">
+        <span>Contraseña*:</span>
+        </div>
+
+        <div class="container_form-nombre-place">
+          <input id="paswordInput" type="password" formControlName="password" placeholder="Contraseña">
+          <small *ngIf="passwordField.valid && passwordField.touched" style="color:#7ec543">
+            Contraseña debe contener al menos 8 caracteres
+          </small>
+          <div *ngIf="passwordField.errors && passwordField.touched">
+            <small *ngIf="passwordField.hasError('required')">
+              Campo obligatorio
+            </small>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="container_form-login">
+        <div>
+          <button *ngIf="userLogin.invalid" type="button" style="background-color: rgba(192, 192, 192, 0.275)" >
+            Registrarse
+          </button>
+          <button *ngIf="userLogin.valid" type="submit"
+            (click)="login()"
+            style="background-color: #7ec543">
+            Registrarse
+          </button>
+        </div>
+        <div>
+          <a href="#">Olvidaste tu Contraseña?</a>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div id="socialMediaSeccion" class="container_form-rightside">
+
+    <div>
+      <div>
+        <button id="btn1" type="button">
+          Registrarme con Facebook</button>
+      </div>
+
+      <div>
+        <button id="btn2" type="button">
+          Registrarme con Google</button>
+      </div>
+    </div>
+
+    <div>
+      <span>¿No tienes cuenta Alsuper? <a routerLink="/register">Registrate</a></span>
+    </div>
+
+    </div>
+
+  </form>
+
+</div>

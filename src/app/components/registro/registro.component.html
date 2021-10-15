@@ -1,0 +1,195 @@
+<!--
+<p>
+  Email:<br>
+  <input type="email" [formControl]="emailCtrl">
+</p>
+<p *ngIf="emailCtrl.errors && emailCtrl.dirty">
+    <small *ngIf="emailCtrl.hasError('required')"> Este campo es requierido</small>
+    <small *ngIf="emailCtrl.hasError('maxlength')"> Este campo debe ser maximo de 10 caracteres</small>
+    <small *ngIf="emailCtrl.hasError('minlength')"> Este campo debe ser mini de 4 caracteres</small>
+</p>
+-
+
+
+<button [disabled]="emailCtrl.invalid" type="button" >Save</button>
+
+<br><br><br> -->
+
+<div class="container">
+
+  <div class="container_form--banner">
+    <img src="../../../assets/img/alsuper@3x.png" alt="">
+  </div>
+
+  <form class="container_form" [formGroup]="form" (ngSubmit)="save($event)">
+
+    <div class="container_from-leftside">
+
+        <h2 class="container_form-titulo">Crear cuenta</h2>
+
+        <div id="nameSeccion" class="container_form-nombre">
+
+            <div class="container_form-nombre-ingreso">
+            <span *ngIf="nameField.valid">Nombre(s)*:</span>
+            </div>
+
+            <div class="container_form-nombre-place">
+              <input type="text" formControlName="name" placeholder="Nombre(s)">
+              <div *ngIf="nameField.errors && nameField.dirty">
+                <small *ngIf="nameField.hasError('required')">
+                  Es un campo requerido
+                </small>
+              </div>
+            </div>
+        </div>
+
+        <div id="lastNameSeccion" class="container_form-nombre">
+
+          <div class="container_form-nombre-ingreso">
+            <span *ngIf="lastNameField.valid">Apellidos*:</span>
+          </div>
+
+          <div class="container_form-nombre-place">
+            <input type="text" formControlName="lastname" placeholder="Appellidos">
+            <div *ngIf="lastNameField.errors && lastNameField.dirty">
+              <small *ngIf="lastNameField.hasError('required')">
+                Es un campo requerido
+              </small>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="phoneSeccion" class="container_form-nombre">
+
+            <div class="container_form-nombre-ingreso">
+              <span *ngIf="cellphoneFiel.valid">Telefono*:</span>
+            </div>
+
+           <div class="container_form-phone-place">
+
+              <div class="container_form-phone-place entradas">
+                <div>
+                  <p>+52</p>
+                </div>
+                <div>
+                  <input type="text" formControlName="cellphone" placeholder="Telefono">
+                </div>
+              </div>
+
+             <div *ngIf="cellphoneFiel.errors && cellphoneFiel.dirty">
+               <small *ngIf="cellphoneFiel.hasError('required')">
+                 Es un campo requerido
+               </small>
+               <small *ngIf="cellphoneFiel.hasError('pattern')">
+                Ha ingresado un numero de telefono invalido
+               </small>
+             </div>
+           </div>
+
+        </div>
+
+        <div id="emalSeccion" class="container_form-nombre">
+
+            <div class="container_form-nombre-ingreso">
+              <span>Correo electónico*:</span>
+            </div>
+
+            <div class="container_form-nombre-place">
+              <input type="email" formControlName="email" placeholder="Correo electronico">
+              <div *ngIf="emailField.errors && emailField.touched">
+                <small *ngIf="emailField.hasError('required')">
+                  Es un campo requerido
+                </small>
+                <small *ngIf="emailField.hasError('pattern')">
+                  Correo electronico no valido. Vuelva a intentar
+                </small>
+              </div>
+            </div>
+        </div>
+
+
+        <div id="passwordSeccion" class="container_form-nombre">
+
+          <div class="container_form-nombre-ingreso">
+           <span>Contraseña*:</span>
+          </div>
+
+          <div class="container_form-nombre-place">
+            <input type="password" formControlName="password" placeholder="Contraseña">
+            <small *ngIf="passwordField.valid && passwordField.touched" style="color: #7ec543;">
+              Contraseña debe tener al menos 8 caracteres
+            </small>
+            <div *ngIf="passwordField.errors && passwordField.touched">
+              <small *ngIf="passwordField.hasError('required')">
+                Campo obligatorio
+              </small>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="cheksSeccion" class="container_form-cheks">
+
+          <div class="container_form-cheks-terms">
+
+            <label class="checkbox">
+              <small for="">He leido los</small><br>
+              <a routerLink="">Terminos de Servicio y Privacidad</a>
+              <input type="checkbox" formControlName="type" >
+              <span class="check"></span>
+            </label>
+            <p *ngIf="clienteField.hasError('required') && emailField.dirty"
+            style="color: red;">
+            debes estar deacuerdo
+            </p>
+
+          </div>
+
+          <div class="container_form-cheks-newsletter">
+
+            <label class="checkbox">
+              Suscribirme al newsletter<br>
+              <input type="checkbox">
+              <span class="check"></span>
+            </label>
+
+          </div>
+
+          <div>
+            <button *ngIf="form.invalid" type="button" style="background-color: rgba(192, 192, 192, 0.275);" >
+              Registrarse
+            </button>
+            <button *ngIf="form.valid" type="submit"
+              (click)="createUser()"
+              style="background-color: #7ec543">
+              Registrarse
+            </button>
+          </div>
+        </div>
+    </div>
+
+
+    <div id="socialMediaSeccion" class="container_form-rightside">
+
+      <div>
+        <div>
+          <button id="btn1" type="button">
+            Registrarme con Facebook</button>
+        </div>
+
+        <div>
+          <button id="btn2" type="button">
+            Registrarme con Google</button>
+        </div>
+      </div>
+
+      <div>
+        <span>Ya tienes cuenta Alsuper? <a routerLink="/login">Inicia Sesion</a></span>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>

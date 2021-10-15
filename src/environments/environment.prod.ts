@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  API_URL: 'https://alsuper.develop-bambumobile.com/v1/',
 };
+
