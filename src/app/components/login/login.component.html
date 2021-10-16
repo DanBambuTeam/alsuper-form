@@ -56,21 +56,26 @@
       <div class="container_form-login">
         <div>
           <button *ngIf="userLogin.invalid" type="button" style="background-color: rgba(192, 192, 192, 0.275)" >
-            Registrarse
+            Ingresar
           </button>
           <button *ngIf="userLogin.valid" type="submit"
             (click)="login()"
             style="background-color: #7ec543">
-            Registrarse
+            Ingresar
           </button>
         </div>
         <div>
-          <a href="#">Olvidaste tu Contraseña?</a>
+          <a routerLink="/chpassword">Olvidaste tu Contraseña?</a>
         </div>
       </div>
 
     </div>
 
+    <div class="container_form-middleline">
+      <div>
+
+      </div>
+    </div>
 
     <div id="socialMediaSeccion" class="container_form-rightside">
 
@@ -84,11 +89,14 @@
         <button id="btn2" type="button">
           Registrarme con Google</button>
       </div>
+
+
+      <div>
+        <span>¿No tienes cuenta Alsuper? <a routerLink="/register">Registrate</a></span>
+      </div>
     </div>
 
-    <div>
-      <span>¿No tienes cuenta Alsuper? <a routerLink="/register">Registrate</a></span>
-    </div>
+
 
     </div>
 

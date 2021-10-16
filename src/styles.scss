@@ -3,3 +3,29 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+.input-email{
+  width: 328px;
+  height: 48px;
+  padding: 16px 0px;
+  margin: auto;
+  div{
+    margin: auto;
+    label{
+      font-family: 'Montserrat';
+    }
+   }
+  input{
+    width: 301px;
+    height: 18px;
+    padding: 15px 0px 15px 17px;
+    margin: 0;
+    border: 1px solid;
+    border-radius:  5px;
+    font-family: 'Montserrat';
+    &:focus{
+      border: 2px solid #7ec543;
+      outline: none;
+    }
+  }
+}
