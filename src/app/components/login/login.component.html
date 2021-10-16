@@ -58,14 +58,14 @@
           <button *ngIf="userLogin.invalid" type="button" style="background-color: rgba(192, 192, 192, 0.275)" >
             Ingresar
           </button>
-          <button *ngIf="userLogin.valid" type="submit"
-            (click)="login()"
+          <button *ngIf="userLogin.valid " type="submit"
+            (click)="openDialog()"
             style="background-color: #7ec543">
             Ingresar
           </button>
         </div>
         <div>
-          <a routerLink="/restpassword">Olvidaste tu Contraseña?</a>
+          <a routerLink="/restpastreq">Olvidaste tu Contraseña?</a>
         </div>
       </div>
 
@@ -95,8 +95,6 @@
         <span>¿No tienes cuenta Alsuper? <a routerLink="/register">Registrate</a></span>
       </div>
     </div>
-
-
 
     </div>
 

@@ -12,7 +12,8 @@ export interface loginI{
 
 export interface ResponseI{
   jwt: string,
-  refresh_token: string
+  refresh_token: string,
+  error?:string
 }
 
 

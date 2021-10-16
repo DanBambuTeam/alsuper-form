@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule} from './material.module';
 import { RestpasswordComponent } from './components/restpassword/restpassword.component';
+import { ChekcodeComponent } from './components/chekcode/chekcode.component';
+import { RestpastreqComponent } from './components/restpastreq/restpastreq.component';
 
 
 
@@ -18,7 +20,9 @@ import { RestpasswordComponent } from './components/restpassword/restpassword.co
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    RestpasswordComponent
+    RestpasswordComponent,
+    ChekcodeComponent,
+    RestpastreqComponent
   ],
   imports: [
     BrowserModule,
@@ -30,6 +34,7 @@ import { RestpasswordComponent } from './components/restpassword/restpassword.co
     MaterialModule,
 
   ],
+  entryComponents:[ChekcodeComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

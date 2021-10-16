@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../services/auth.service'
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {EMAIL_REGEX,ALPHANUMERIC} from '../../shared/data';
+import { MatDialog } from '@angular/material/dialog';
+import { ChekcodeComponent } from '../chekcode/chekcode.component';
+
 
 @Component({
   selector: 'app-login',
@@ -18,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService:AuthService,
+    public dialog: MatDialog
   ){}
 
   ngOnInit(): void {
@@ -25,10 +29,17 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    this.authService.login(this.userLogin)
-    .subscribe(rta =>{
-      console.log(rta.jwt);
-    });
+    try{
+      this.authService.login(this.userLogin)
+        .subscribe(rta =>{
+          console.log(rta.jwt)
+          if(!rta.jwt ){
+            this.userLogin.openDialog();
+          }
+        });
+    }catch (error){
+      this.userLogin.openDialog();
+    }
   }
 
 
@@ -39,7 +50,7 @@ export class LoginComponent implements OnInit {
       console.log(value);// se imprime ese valor
     }else{
       //habilitando el envio de los datos del formulario aun si no se llenaron, entonces se puede enviar un error
-      this.userLogin.markAllAsTouched();
+      this.userLogin.allMarkedtouched();
     }
   }
 
@@ -51,8 +62,11 @@ export class LoginComponent implements OnInit {
     return this.userLogin.get('password');
   }
 
-
-
+  openDialog():void{
+    const dialogRef = this.dialog.open(ChekcodeComponent,{
+    });
+    dialogRef.afterClosed().subscribe(res => console.log(res))
+  }
 
 
 
