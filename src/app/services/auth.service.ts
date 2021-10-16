@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { LoginUserDTO } from '../models/user.model'
-import { Auth } from '../models/auth.model'
+import { emailreqst, data, loginI, ResponseI} from '../models/auth.model'
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,11 @@ export class AuthService {
     private http:HttpClient
   ) { }
 
-  login(dto:LoginUserDTO){
-    return this.http.post<Auth>(`${this.apiUrl}/login`,dto);
+  login(dto:loginI){
+    return this.http.post<ResponseI>(`${this.apiUrl}/login`,dto);
+  }
+
+  restorePassword(data:emailreqst){
+    return this.http.post<data>(`${this.apiUrl}/forgot-password`,data)
   }
 }

@@ -9,7 +9,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule} from './material.module';
-import { ChpasswordComponent } from './components/chpassword/chpassword.component';
+import { RestpasswordComponent } from './components/restpassword/restpassword.component';
 
 
 
@@ -18,7 +18,7 @@ import { ChpasswordComponent } from './components/chpassword/chpassword.componen
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    ChpasswordComponent
+    RestpasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { ChpasswordComponent } from './components/chpassword/chpassword.component';
+import { RestpasswordComponent } from './components/restpassword/restpassword.component';
+
 
 const routes: Routes = [
 
@@ -15,8 +16,8 @@ const routes: Routes = [
     component: RegistroComponent
   },
   {
-    path: 'chpassword',
-    component: ChpasswordComponent
+    path: 'restpassword',
+    component: RestpasswordComponent,
   }
 
 
