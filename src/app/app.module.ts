@@ -17,7 +17,9 @@ import { VerifyComponent } from './components/verify/verify.component';
 import { ResendverifyComponent } from './components/verify/resendverify/resendverify.component';
 import { ResetpwfailedComponent } from './components/restpassword/resetpwfailed/resetpwfailed.component';
 import { ResetpwscessComponent } from './components/restpassword/resetpwscess/resetpwscess.component';
-import { LoginfailComponent } from './components/login/loginfail/loginfail.component'
+import { LoginfailComponent } from './components/login/loginfail/loginfail.component';
+import { LogsccesComponent } from './components/login/logscces/logscces.component';
+import { BadrqstComponent } from './components/login/badrqst/badrqst.component'
 
 
 
@@ -35,7 +37,9 @@ import { LoginfailComponent } from './components/login/loginfail/loginfail.compo
     ResetpwfailedComponent,
     ResetpwscessComponent,
 
-    LoginfailComponent
+    LoginfailComponent,
+     LogsccesComponent,
+     BadrqstComponent
   ],
   imports: [
     BrowserModule,

@@ -3,7 +3,7 @@ import {AuthService} from '../../services/auth.service'
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {EMAIL_REGEX,ALPHANUMERIC} from '../../shared/data';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginfailComponent } from './loginfail/loginfail.component';
+import { LogsccesComponent } from './logscces/logscces.component';
 import { loginI,ResponseI } from '../../models/auth.model'
 
 
@@ -38,10 +38,10 @@ export class LoginComponent implements OnInit {
     .subscribe(rta =>{
       console.log(rta);
       this.stautsDetail = 'success';
+      this.loginScces();
     },response => {
       console.log(response.error.data)
       this.stautsDetail = 'error';
-      this.openDialog();
     });
   }
 
@@ -61,8 +61,8 @@ export class LoginComponent implements OnInit {
     return this.userLogin.get('password');
   }
 
-  openDialog():void{
-    const dialogRef = this.dialog.open(LoginfailComponent,{
+  loginScces():void{
+    const dialogRef = this.dialog.open(LogsccesComponent,{
     });
     dialogRef.afterClosed().subscribe(res => console.log(res))
   }
