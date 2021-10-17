@@ -1,0 +1,76 @@
+
+<div class="container">
+
+  <div class="container_form--banner">
+   <img src="../../../assets/img/alsuper@3x.png" alt="">
+  </div>
+
+  <form class="container_form">
+
+    <div class="container_form-inputs">
+
+      <div class="container_form-inputs-titulo">
+        <h2>Ingresa el código</h2>
+      </div>
+
+      <div class="container_form-chpasword">
+
+        <div class="container_form-chpasword parrafo">
+          <p>Te enviamos un código al número</p>
+        </div>
+        <div class="container_form-chpasword parrafo">
+          <P>{{showPhone()}}</P>
+        </div>
+
+        <div class="container_form-login">
+          <div>
+            <a routerLink="/login">¿Este no es tu número?</a>
+          </div>
+        </div>
+
+
+          <div class="container_form-email" [formGroup]="verifyData">
+
+            <div class="container_form-email-label">
+              <small *ngIf="codeField.hasError('required') && codeField.touched"  style="color:#ff5757;">Número de verificación</small>
+            </div>
+            <div class="container_form-email-input">
+              <input type="text" formControlName="code" placeholder="Numero de verificación">
+            </div>
+            <div class="container_form-email-label">
+              <small *ngIf="codeField.hasError('required') && codeField.touched"  style="color:#ff5757;" >
+                Código es Incorrecto y/o expiró, por favor inténtelo de nuevo
+            </small>
+            </div>
+
+          </div>
+
+          <div class="container_form-send">
+            <button type="button" *ngIf="codeField.invalid"
+            style="background-color: #cccccc80">
+            Verificar
+            </button>
+            <button *ngIf="codeField.valid" type="submit"
+              style="background-color: #7ec543">
+              Verificar
+            </button>
+            <div class="Countdown">
+              <small id="Countdown">
+                Tu código vence en
+              </small>
+            </div>
+          </div>
+
+
+        <div class="container_form-login">
+          <div>
+            <a (click)="reSendVerfiedCode()">Volver a enviar</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </form>
+
+</div>
