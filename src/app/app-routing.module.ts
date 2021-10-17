@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { RestpasswordComponent } from './components/restpassword/restpassword.component';
-import {ChekcodeComponent} from './components/chekcode/chekcode.component';
-import { RestpastreqComponent } from './components/restpastreq/restpastreq.component'
+import { RestpastreqComponent } from './components/restpastreq/restpastreq.component';
+import { VerifyComponent } from './components/verify/verify.component';
 
 
 const routes: Routes = [
@@ -24,13 +24,14 @@ const routes: Routes = [
       component: RestpasswordComponent,
     },
     {
-      path: 'chekcode',
-      component: ChekcodeComponent,
-    },
-    {
       path: 'restpastreq',
       component: RestpastreqComponent
-    }
+    },
+    {
+      path: 'verify',
+      component: VerifyComponent
+    },
+
 
 
 ];

@@ -10,8 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { MaterialModule} from './material.module';
 import { RestpasswordComponent } from './components/restpassword/restpassword.component';
-import { ChekcodeComponent } from './components/chekcode/chekcode.component';
 import { RestpastreqComponent } from './components/restpastreq/restpastreq.component';
+import { RegisscesComponent } from './components/registro/regissces/regissces.component';
+import { RegisfailedComponent } from './components/registro/regisfailed/regisfailed.component';
+import { VerifyComponent } from './components/verify/verify.component';
+import { ResendverifyComponent } from './components/verify/resendverify/resendverify.component';
+import { ResetpwfailedComponent } from './components/restpassword/resetpwfailed/resetpwfailed.component';
+import { ResetpwscessComponent } from './components/restpassword/resetpwscess/resetpwscess.component';
+import { LoginfailComponent } from './components/login/loginfail/loginfail.component'
 
 
 
@@ -21,8 +27,15 @@ import { RestpastreqComponent } from './components/restpastreq/restpastreq.compo
     RegistroComponent,
     LoginComponent,
     RestpasswordComponent,
-    ChekcodeComponent,
-    RestpastreqComponent
+    RestpastreqComponent,
+    RegisscesComponent,
+    RegisfailedComponent,
+    VerifyComponent,
+    ResendverifyComponent,
+    ResetpwfailedComponent,
+    ResetpwscessComponent,
+
+    LoginfailComponent
   ],
   imports: [
     BrowserModule,
@@ -33,8 +46,9 @@ import { RestpastreqComponent } from './components/restpastreq/restpastreq.compo
     ReactiveFormsModule,
     MaterialModule,
 
+
   ],
-  entryComponents:[ChekcodeComponent],
+  entryComponents:[],
   providers: [],
   bootstrap: [AppComponent]
 })

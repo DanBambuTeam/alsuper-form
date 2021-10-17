@@ -1,6 +1,4 @@
-export interface Auth{
-  acces_token: string;
-}
+
 
 
 //login
@@ -13,7 +11,6 @@ export interface loginI{
 export interface ResponseI{
   jwt: string,
   refresh_token: string,
-  error?:string
 }
 
 
@@ -22,7 +19,7 @@ export interface emailreqst{
   email: string
 }
 
-export interface data{
+export interface ResponseRP{
   message: string,
   mail_accepted: boolean
 }

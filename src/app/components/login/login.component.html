@@ -1,12 +1,10 @@
-
-
 <div class="container">
 
   <div class="container_form--banner">
   <img src="../../../assets/img/alsuper@3x.png" alt="">
   </div>
 
-  <form class="container_form" [formGroup]="userLogin" (ngSubmit)="save($event)">
+  <form class="container_form" [formGroup]="userLogin">
 
     <div class="container_from-leftside">
 
@@ -40,7 +38,9 @@
         </div>
 
         <div class="container_form-nombre-place">
-          <input id="paswordInput" type="password" formControlName="password" placeholder="Contraseña">
+          <div>
+            <input id="paswordInput" matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Contraseña">
+          </div>
           <small *ngIf="passwordField.valid && passwordField.touched" style="color:#7ec543">
             Contraseña debe contener al menos 8 caracteres
           </small>
@@ -58,8 +58,7 @@
           <button *ngIf="userLogin.invalid" type="button" style="background-color: rgba(192, 192, 192, 0.275)" >
             Ingresar
           </button>
-          <button *ngIf="userLogin.valid " type="submit"
-            (click)="openDialog()"
+          <button *ngIf="userLogin.valid " type="submit" (click)="onLogin(userLogin.value)"
             style="background-color: #7ec543">
             Ingresar
           </button>
@@ -72,9 +71,6 @@
     </div>
 
     <div class="container_form-middleline">
-      <div>
-
-      </div>
     </div>
 
     <div id="socialMediaSeccion" class="container_form-rightside">

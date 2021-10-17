@@ -3,7 +3,8 @@ import {AuthService} from '../../services/auth.service'
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {EMAIL_REGEX,ALPHANUMERIC} from '../../shared/data';
 import { MatDialog } from '@angular/material/dialog';
-import { ChekcodeComponent } from '../chekcode/chekcode.component';
+import { LoginfailComponent } from './loginfail/loginfail.component';
+import { loginI,ResponseI } from '../../models/auth.model'
 
 
 @Component({
@@ -18,41 +19,39 @@ export class LoginComponent implements OnInit {
     password: new FormControl('',[Validators.required,Validators.pattern(ALPHANUMERIC)])
   });
 
+  hide = true;
+
+  stautsDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
+
 
   constructor(
     private authService:AuthService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ){}
 
   ngOnInit(): void {
 
   }
 
-  login(){
-    try{
-      this.authService.login(this.userLogin)
-        .subscribe(rta =>{
-          console.log(rta.jwt)
-          if(!rta.jwt ){
-            this.userLogin.openDialog();
-          }
-        });
-    }catch (error){
-      this.userLogin.openDialog();
-    }
+  onLogin(form:loginI){
+    this.authService.loginacces(form)
+    .subscribe(rta =>{
+      console.log(rta);
+      this.stautsDetail = 'success';
+    },response => {
+      console.log(response.error.data)
+      this.stautsDetail = 'error';
+      this.openDialog();
+    });
   }
 
-
-  save(event: Event) { //con esto se evita que se recargue la pagina al enviar.
+  /*save(event: Event) { //con esto se evita que se recargue la pagina al enviar.
     event.preventDefault();
     if(this.userLogin.valid){ //si los datos son validos etonces enseña en la consola el valor de lo que se envia
       const value = this.userLogin.value;
       console.log(value);// se imprime ese valor
-    }else{
-      //habilitando el envio de los datos del formulario aun si no se llenaron, entonces se puede enviar un error
-      this.userLogin.allMarkedtouched();
     }
-  }
+  }*/
 
   get emailField(){
     return this.userLogin.get('email');
@@ -63,10 +62,11 @@ export class LoginComponent implements OnInit {
   }
 
   openDialog():void{
-    const dialogRef = this.dialog.open(ChekcodeComponent,{
+    const dialogRef = this.dialog.open(LoginfailComponent,{
     });
     dialogRef.afterClosed().subscribe(res => console.log(res))
   }
+
 
 
 

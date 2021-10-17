@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { environment } from '../../environments/environment';
-import { emailreqst, data, loginI, ResponseI} from '../models/auth.model'
+import { emailreqst, ResponseRP, loginI, ResponseI} from '../models/auth.model'
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -17,11 +18,13 @@ export class AuthService {
     private http:HttpClient
   ) { }
 
-  login(dto:loginI){
+  loginacces(dto:loginI): Observable <ResponseI> {
     return this.http.post<ResponseI>(`${this.apiUrl}/login`,dto);
   }
 
-  restorePassword(data:emailreqst){
-    return this.http.post<data>(`${this.apiUrl}/forgot-password`,data)
+  restorePassword(data:emailreqst): Observable <ResponseRP>{
+    return this.http.post<ResponseRP>(`${this.apiUrl}/forgot-password`,data)
   }
+
+
 }

@@ -6,13 +6,23 @@ export interface User{
   email: string,
   cellphone: string,
   password: string,
-  type: string
+  type?: string
 }
 
-export interface CreateUserDTO{}
 
-export interface LoginUserDTO extends Omit<User, 'name'|'lastname'|'cellphone'|'type'>{}
 
-export interface restorePasswordDTO extends Omit<User, 'name'|'lastname'|'cellphone'|'type'|'password'>{}
+export interface ResponseU{
+  message: string,
+  data: [
+      {
+          user_id: number,
+          email: string,
+          role: string,
+          name: string,
+          lastname: string,
+          cellphone: string
+      }
+  ]
+}
 
 
